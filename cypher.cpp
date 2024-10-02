@@ -7,18 +7,18 @@ string encrypt(string text, int key) {
     string encryptedText = "";
     
     // Loop through each character in the text
-    for (char c : text) {
+    for (char character : text) {
         // Check if character is an uppercase letter
-        if (isupper(c)) {
-            encryptedText += char(int(c + key - 'A') % 26 + 'A');
+        if (isupper(character)) {
+            encryptedText += char(int(character + key - 'A') % 26 + 'A');
         }
         // Check if character is a lowercase letter
-        else if (islower(c)) {
-            encryptedText += char(int(c + key - 'a') % 26 + 'a');
+        else if (islower(character)) {
+            encryptedText += char(int(character + key - 'a') % 26 + 'a');
         }
         // If not a letter, just add the original character
         else {
-            encryptedText += c;
+            encryptedText += character;
         }
     }
     return encryptedText;
@@ -29,18 +29,18 @@ string decrypt(string text, int key) {
     string decryptedText = "";
     
     // Loop through each character in the text
-    for (char c : text) {
+    for (char character : text) {
         // Check if character is an uppercase letter
-        if (isupper(c)) {
-            decryptedText += char((int(c - key - 'A' + 26) % 26) + 'A');
+        if (isupper(character)) {
+            decryptedText += char((int(character - key - 'A' + 26) % 26) + 'A');
         }
         // Check if character is a lowercase letter
-        else if (islower(c)) {
-            decryptedText += char((int(c - key - 'a' + 26) % 26) + 'a');
+        else if (islower(character)) {
+            decryptedText += char((int(character - key - 'a' + 26) % 26) + 'a');
         }
         // If not a letter, just add the original character
         else {
-            decryptedText += c;
+            decryptedText += character;
         }
     }
     return decryptedText;
